@@ -8,17 +8,16 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
+import { useNavigate } from "react-router-dom";
 
-const getPlayerInfo = players => {
-    return players.map((player) => {
-        return <li key={player.pid}>{player.fn} {player.ln}</li>;
-    })
-}
+
 
 export default function MediaCard(props) {
-    const {players, id} = props
-    console.log(id)
+    const {players} = props;
+    const navigate = useNavigate()
+
   return players.map((player) => {
+    const headshotsURL = `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.pid}.png`;
         return (
             // <div style={{all: unset}} key={player.pid}>
                     <Grid item xs={12} md={4} lg={3} key={player.pid}>
@@ -27,19 +26,19 @@ export default function MediaCard(props) {
                                 p: 2,
                                 display: 'flex',
                                 flexDirection: 'column',
-                                height: 350,
+                                height: 480,
                             }}
                         >
                             
                             <Card sx={{ maxWidth: 345 }}>
                                 <CardMedia
                                     component="img"
-                                    height="100"
-                                    image="/static/images/cards/contemplative-reptile.jpg"
+                                    height="200"
+                                    image={headshotsURL}
                                     alt="green iguana"
                                 />
                                 <CardContent>
-                                    
+
                                     <Typography gutterBottom variant="h5" component="div">
                                     {player.fn} {player.ln}
                                     </Typography>
@@ -61,12 +60,16 @@ export default function MediaCard(props) {
                                     </Typography>
 
                                     <Typography variant="body2" color="text.secondary" >
-                                    Weight: {player.wt}
+                                    Weight: {player.wt} lbs
+                                    </Typography>
+
+                                    <Typography variant="body2" color="text.secondary" >
+                                    DOB: {player.dob}
                                     </Typography>
 
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small">Stats</Button>
+                                    <Button size="small" onClick={() => navigate(`/player-stats/${player.pid}`)}>Stats</Button>
                                 </CardActions>
                             </Card>
                            
