@@ -320,7 +320,7 @@ import Grid from '@mui/material/Grid';
 
   
         return (
-          <Box>
+          <Box sx={{ width: '100%' }}>
                             <EnhancedTableToolbar numSelected={selected.length} />
                             <TableContainer>
                                 <Table
@@ -382,7 +382,8 @@ import Grid from '@mui/material/Grid';
                             control={<Switch checked={dense} onChange={handleChangeDense} />}
                             label="Dense padding"
                             />
-              </Box>
+
+            </Box>
         );
     }
     return (

@@ -19,16 +19,15 @@ export default function MediaCard(props) {
   return players.map((player) => {
     const headshotsURL = `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.pid}.png`;
         return (
-            // <div style={{all: unset}} key={player.pid}>
                     <Grid item xs={12} md={4} lg={3} key={player.pid}>
-                        <Paper
+                        {/* <Paper
                             sx={{
                                 p: 2,
                                 display: 'flex',
                                 flexDirection: 'column',
                                 height: 480,
                             }}
-                        >
+                        > */}
                             
                             <Card sx={{ maxWidth: 345 }}>
                                 <CardMedia
@@ -73,7 +72,7 @@ export default function MediaCard(props) {
                                 </CardActions>
                             </Card>
                            
-                        </Paper>
+                        {/* </Paper> */}
                     </Grid>
             // </div>
         )}

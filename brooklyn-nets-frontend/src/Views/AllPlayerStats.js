@@ -57,7 +57,7 @@ import Header from './Header.js';
                           ? theme.palette.grey[100]
                           : theme.palette.grey[900],
                       flexGrow: 1,
-                      height: '100vh',
+                      height: '85vh',
                       overflow: 'auto',
                   }}
                   >
@@ -72,10 +72,10 @@ import Header from './Header.js';
                       >
                       Player Stats
                       </Typography>
-                      <Container>
-                        <Grid container spacing={5} sx={{ mt: 3 }}>
+                      <Container maxWidth="xl">
+                        <Grid container spacing={8} sx={{ mt: 1}}>
                           <Grid item xs={12}>
-                            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                            <Paper sx={{ p: 1.5, display: 'flex', flexDirection: 'column' }}>
                             
                               <AllAvgStats/>
 
@@ -83,10 +83,10 @@ import Header from './Header.js';
                           </Grid>
 
                         <Grid item xs={12}>
-                          <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                          <Paper sx={{ p: 1.5, display: 'flex', flexDirection: 'column' }}>
 
                             <AllTotalStats/>
-                            
+
                           </Paper>
                         </Grid>
                       </Grid>
