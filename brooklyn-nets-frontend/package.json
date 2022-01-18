@@ -1,7 +1,7 @@
 {
   "name": "brooklyn-nets-frontend",
-  "homepage": "https://kimberlybone.github.io/brooklyn-nets/",
   "version": "0.1.0",
+  "homepage": "https://kimberlybone.github.io/brooklyn-nets/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
