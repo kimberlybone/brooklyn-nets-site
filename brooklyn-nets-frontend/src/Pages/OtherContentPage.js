@@ -32,7 +32,6 @@ import LoadingPage from './LoadingPage.js';
     const { title, sections } = props;
     const contentURL = 'https://cors-anywhere.herokuapp.com/https://www.nba.com/nets/api/1.1/json/?type=story+OR+photo_gallery+OR+video&amp;players=Durant,+Kevin'
     const [product, setProduct] = useState(null);
-    // const navigate = useNavigate()
 
     useEffect(() => {
         axios.get(contentURL)

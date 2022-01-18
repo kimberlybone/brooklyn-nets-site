@@ -97,7 +97,7 @@ import Content from '../Components/Content.js';
                       {player.fn} {player.ln}'s Content
                     </Typography>
                 <Content data={product}/>
-                <Button variant="outlined" href={product.next}>Next</Button>
+                {/* <Button variant="outlined" href={product.next}>Next</Button> */}
                 
             </Box>
           </Container>
