@@ -1,5 +1,6 @@
 {
   "name": "brooklyn-nets-frontend",
+  "homepage": "https://kimberlybone.github.io/brooklyn-nets/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -58,6 +59,5 @@
   "devDependencies": {
     "assert": "^2.0.0",
     "buffer": "^6.0.3"
-  },
-  "homepage": "https://kimberlybone.github.io/brooklyn-nets/"
+  }
 }
