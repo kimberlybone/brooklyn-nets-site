@@ -56,16 +56,24 @@ import Content from '../Components/Content.js';
     const contentURL = `https://cors-anywhere.herokuapp.com/https://www.nba.com/nets/api/1.1/json/?type=story+OR+photo_gallery+OR+video&amp;players=${player.ln},+${player.fn}`;
     // const contentURL = `https://cors-anywhere.herokuapp.com/https://www.nba.com/nets/api/1.1/json/?type=story%20OR%20photo_gallery%20OR%20video&amp%3Bplayers=${player.ln}%2C%20${player.fn}&offset=10`
 
+    const x = new XMLHttpRequest();
+    x.open('GET', contentURL);
 
-    useEffect(() => {
-      axios.get(contentURL)
-      .then(response => {
-          console.log(response.data)
-          setProduct(response.data)
-      })
-    }, [contentURL])
-
+    x.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    x.onload = function() {
+        setProduct(x.responseText);
+    };
+    x.send();
     console.log(product)
+
+    // useEffect(() => {
+    //   axios.get(contentURL)
+    //   .then(response => {
+    //       console.log(response.data)
+    //       setProduct(response.data)
+    //   })
+    // }, [contentURL])
+
 
   if(product) {
 
