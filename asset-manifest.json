@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/brooklyn-nets/static/css/main.e6c13ad2.css",
+    "main.js": "/brooklyn-nets/static/js/main.c0fb36c4.js",
+    "static/js/787.84b003f3.chunk.js": "/brooklyn-nets/static/js/787.84b003f3.chunk.js",
+    "index.html": "/brooklyn-nets/index.html",
+    "main.e6c13ad2.css.map": "/brooklyn-nets/static/css/main.e6c13ad2.css.map",
+    "main.c0fb36c4.js.map": "/brooklyn-nets/static/js/main.c0fb36c4.js.map",
+    "787.84b003f3.chunk.js.map": "/brooklyn-nets/static/js/787.84b003f3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.c0fb36c4.js"
+  ]
+}
