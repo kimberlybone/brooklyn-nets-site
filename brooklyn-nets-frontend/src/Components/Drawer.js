@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ListItems from './listItems';
+import ListItems from '../Adapters/listItems';
 import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -59,7 +59,6 @@ export default function Drawer (){
     </Toolbar>
     <Divider />
     <List><ListItems/></List>
-    {/* <List>{secondaryListItems}</List> */}
    </StyledDrawer>
   )
 }

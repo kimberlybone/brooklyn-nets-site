@@ -5,14 +5,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import AllAvgStats from './AllAvgStats.js';
-import AllTotalStats from './AllTotalStats.js';
-import Drawer from './Drawer.js';
-import AppBar from './NavBar.js';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
 import Paper from '@mui/material/Paper';
-import Header from './Header.js';
+import Header from '../Components/Header.js';
+
+import AllAvgStats from '../Adapters/AllAvgStatsItems.js';
+import AllTotalStats from '../Adapters/AllTotalStatsItems.js';
 
 
   const darkTheme = createTheme({
@@ -36,7 +35,7 @@ import Header from './Header.js';
   })
   
   
-  export default function AllPlayerStats(props) {
+  export default function AllPlayerStatsPage(props) {
 
     const { data, sections } = props;
  

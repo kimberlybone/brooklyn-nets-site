@@ -1,24 +1,19 @@
+
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import {useEffect, useState} from 'react'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import axios from 'axios';
-import Product from './Product.js';
-import NavBar from './NavBar.js'
-import Drawer from './Drawer.js';
-import Grid from '@mui/material/Grid';
 import { Container } from '@mui/material';
-import Header from './Header.js';
+import Button from '@mui/material/Button';
+
+import Header from '../Components/Header.js';
+import Content from '../Components/Content.js';
+import LoadingPage from './LoadingPage.js';
 
 
-  const sections = [
-    { title: 'Dashboard', url: '/' },
-    { title: 'Stats', url: '/player-stats/' },
-    { title: 'Other Content', url: '#' },
-  ];
 
   const darkTheme = createTheme({
     palette: {
@@ -28,31 +23,31 @@ import Header from './Header.js';
       },
     },
   });
+
   const theme = createTheme()
 
-  export default function HomePage() {
-    const rosterURL = 'https://data.nba.com/data/5s/v2015/json/mobile_teams/nba/2021/teams/nets_roster.json'
+
+
+  export default function OtherContentPage(props) {
+    const { title, sections } = props;
+    const contentURL = 'https://cors-anywhere.herokuapp.com/https://www.nba.com/nets/api/1.1/json/?type=story+OR+photo_gallery+OR+video&amp;players=Durant,+Kevin'
     const [product, setProduct] = useState(null);
+    // const navigate = useNavigate()
 
     useEffect(() => {
-        axios.get(rosterURL)
+        axios.get(contentURL)
         .then(response => {
-            setProduct(response.data.t)
+            setProduct(response.data)
         })
-    }, [rosterURL])
+    }, [contentURL])
     
 
     if(product) {
         return (
             <ThemeProvider theme={theme}>
-                {/* <Box sx={{ flexGrow: 1 }}> */}
-                {/* <Box sx={{ display:'flex' }}> */}
                     <CssBaseline/>
                     <Container maxWidth="xl">
-{/* 
-                      <NavBar data={product}/>
-                      <Drawer data={product}/> */}
-                        <Header title={product} sections={sections} />
+                        <Header title={title} sections={sections} />
 
                     <Box
                     component="main"
@@ -67,21 +62,16 @@ import Header from './Header.js';
                     }}
                     >
                         <Toolbar/>
-                          <Product players={product.pl}/>
+                        <Content data={product}/>
+                        <Button variant="outlined" href={product.next}>Next</Button>
                           
                     </Box>
-                {/* </Box> */}
               </Container>
             </ThemeProvider>
         );
     }
     
     return (
-        <Typography 
-          variant='h6'
-          sx={{alignItems: 'center'}}
-          >
-          Loading...
-        </Typography>
+        <LoadingPage/>
     )
   }

@@ -4,12 +4,15 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import HomePage from './Views/HomePage.js';
-import PlayerStats from './Views/PlayerStats.js';
-import AllPlayerStats from './Views/AllPlayerStats.js';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Typography from '@mui/material/Typography';
+
+import HomePage from './Pages/HomePage.js';
+import PlayerStatsPage from './Pages/PlayerContentPage.js';
+import AllPlayerStatsPage from './Pages/TeamStatsPage.js';
+import OtherContentPage from './Pages/OtherContentPage.js';
+
 
 export default function App() {
 
@@ -17,9 +20,9 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   const sections = [
-    { title: 'Dashboard', url: '/' },
-    { title: 'Stats', url: '/player-stats/' },
-    { title: 'Other Content', url: '#' },
+    { title: 'Players', url: '/' },
+    { title: 'Team Stats', url: '/team-stats/' },
+    // { title: 'Other Content', url: '/other-content/' },
   ];
 
   useEffect(() => {
@@ -34,9 +37,10 @@ export default function App() {
       <div>
         <Router>
           <Routes>
-            <Route exact path="/" element={<HomePage/>}/> 
-            <Route exact path="/player-stats/:id" element={<PlayerStats data={product}/>}/>
-            <Route exact path="/player-stats/" element={<AllPlayerStats data={product} sections={sections}/>}/>
+            <Route exact path="/" element={<HomePage sections={sections}/>}/> 
+            <Route exact path="/player-stats/:id" element={<PlayerStatsPage data={product} sections={sections}/>}/>
+            <Route exact path="/team-stats/" element={<AllPlayerStatsPage data={product} sections={sections}/>}/>
+            {/* <Route exact path="/other-content/" element={<OtherContentPage title={product} sections={sections}/>}/> */}
           </Routes>
         </Router>
       </div>
@@ -52,4 +56,3 @@ export default function App() {
   )
 }
 
-// export default App;

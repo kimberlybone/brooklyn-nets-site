@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState, useEffect, PureComponent} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Typography from '@mui/material/Typography';
 import {useParams} from 'react-router';
@@ -18,8 +18,8 @@ import Paper from '@mui/material/Paper';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { visuallyHidden } from '@mui/utils';
-import Grid from '@mui/material/Grid';
-// import EnhancedTableHead from './EnhancedTableHead.js'
+
+import LoadingPage from '../Pages/LoadingPage.js'
 
 
   function createData(name, ast, blk, dreb, fgp, ftp, gp, gs, min, oreb, pf, pts, reb, stl, tov, tpp) {
@@ -254,7 +254,6 @@ import Grid from '@mui/material/Grid';
     const statsURL = 'https://data.nba.com/data/v2015/json/mobile_teams/nba/2021/teams/nets/player_averages_02.json';
     const [product, setProduct] = useState(null);
     const {id} = useParams();
-    const [open, setOpen] = React.useState(true);
 
     useEffect(() => {
         axios.get(statsURL)
@@ -387,11 +386,6 @@ import Grid from '@mui/material/Grid';
         );
     }
     return (
-        <Typography 
-        variant='h6'
-        sx={{alignItems: 'center'}}
-        >
-            Loading...
-        </Typography>
+        <LoadingPage/>
     )
   }

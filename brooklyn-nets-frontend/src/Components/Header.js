@@ -14,7 +14,8 @@ function Header(props) {
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Button size="small">Subscribe</Button>
+        {/* <Button size="small">Subscribe</Button> */}
+        <img src={process.env.PUBLIC_URL + '/Brooklyn-Nets-logo.png'} width='40' height='auto'/>
         <Typography
           component="h2"
           variant="h5"
@@ -27,23 +28,24 @@ function Header(props) {
         </Typography>
         <IconButton>
         </IconButton>
-        <Button variant="outlined" size="small">
+        <img src={process.env.PUBLIC_URL + '/nba-logo.png'} width='30' height='auto'/>
+        {/* <Button variant="outlined" size="small">
           Sign up
-        </Button>
+        </Button> */}
       </Toolbar>
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{ justifyContent: 'space-evenly', overflowX: 'auto' }}
       >
         {sections.map((section) => (
           <Link
             color="inherit"
             noWrap
             key={section.title}
-            variant="body2"
+            variant="body1"
             href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
+            sx={{ p: 2, flexShrink: 0 }}
           >
             {section.title}
           </Link>
@@ -60,7 +62,6 @@ Header.propTypes = {
       url: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  title: PropTypes.string.isRequired,
 };
 
 export default Header;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useState, useEffect, PureComponent} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import Typography from '@mui/material/Typography';
 import {useParams} from 'react-router';
@@ -18,6 +18,8 @@ import Paper from '@mui/material/Paper';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { visuallyHidden } from '@mui/utils';
+
+import LoadingPage from '../Pages/LoadingPage.js';
 
 
   function createData(name, ast, blk, dreb, ftm, fta, gp, gs, min, oreb, pf, pts, reb, stl, tov, tpa, tpm) {
@@ -248,7 +250,7 @@ import { visuallyHidden } from '@mui/utils';
     // numSelected: PropTypes.number.isRequired,
   };
   
-  export default function AllAvgStats() {
+  export default function AllTotalStats() {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [selected, setSelected] = React.useState([]);
@@ -259,9 +261,7 @@ import { visuallyHidden } from '@mui/utils';
     const [product, setProduct] = useState(null);
     const {id} = useParams();
     const [open, setOpen] = React.useState(true);
-    const toggleDrawer = () => {
-      setOpen(!open);
-    };
+
 
     useEffect(() => {
         axios.get(statsURL)
@@ -274,7 +274,7 @@ import { visuallyHidden } from '@mui/utils';
 
         const players = product.pl;
 
-        const getPlayerAvgStats = (players) => {
+        const getPlayerTotalStats = (players) => {
             return players.map((player) => {
                 const playerTot = player.tot;
                 return createData(
@@ -299,7 +299,7 @@ import { visuallyHidden } from '@mui/utils';
             })
         }
 
-        const rows = getPlayerAvgStats(players)
+        const rows = getPlayerTotalStats(players)
   
         const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -394,11 +394,6 @@ import { visuallyHidden } from '@mui/utils';
             );
         }
     return (
-        <Typography 
-        variant='h6'
-        sx={{alignItems: 'center'}}
-        >
-            Loading...
-        </Typography>
+        <LoadingPage/>
     )
   }

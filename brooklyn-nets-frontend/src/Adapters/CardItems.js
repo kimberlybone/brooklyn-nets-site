@@ -6,28 +6,18 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Container from '@mui/material/Container';
-import { useNavigate } from "react-router-dom";
 
 
 
-export default function MediaCard(props) {
+
+export default function CardItem(props) {
     const {players} = props;
-    const navigate = useNavigate()
+
 
   return players.map((player) => {
     const headshotsURL = `https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/${player.pid}.png`;
         return (
                     <Grid item xs={12} md={4} lg={3} key={player.pid}>
-                        {/* <Paper
-                            sx={{
-                                p: 2,
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: 480,
-                            }}
-                        > */}
                             
                             <Card sx={{ maxWidth: 345 }}>
                                 <CardMedia
@@ -51,7 +41,7 @@ export default function MediaCard(props) {
                                     </Typography>
 
                                     <Typography variant="body2" color="text.secondary" >
-                                    Location: {player.hcc}
+                                    Attended: {player.hcc}
                                     </Typography>
 
                                     <Typography variant="body2" color="text.secondary" >
@@ -68,13 +58,11 @@ export default function MediaCard(props) {
 
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" onClick={() => navigate(`/player-stats/${player.pid}`)}>Stats</Button>
+                                    <Button size="small" href={`/player-stats/${player.pid}`}>Stats</Button>
                                 </CardActions>
                             </Card>
                            
-                        {/* </Paper> */}
                     </Grid>
-            // </div>
         )}
   );
 }
